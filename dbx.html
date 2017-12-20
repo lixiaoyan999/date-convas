@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多边形</title>
+</head>
+<style>
+    canvas{
+        border:1px solid #03a94f;
+    }
+</style>
+<body>
+    <canvas width="300px" height="300px"></canvas>
+    <script>
+        let canvas = document.querySelector('canvas');
+        let ctx = canvas.getContext('2d');
+        //多边形
+        dbx(6);
+        function dbx(num){
+            let r = 100;
+            let a = 2 * Math.PI / num;
+           ctx.beginPath();
+            ctx.moveTo(150+r,150);
+            for(let i = 0;i < num;i++){
+                let x = 150 + r * Math.cos(a * i);
+                let y = 150 + r * Math.sin(a * i);
+                ctx.lineTo(x,y);
+            }
+            ctx.closePath();
+            ctx.stroke();
+        }
+
+        //倒计时
+
+    </script>
+</body>
+</html>

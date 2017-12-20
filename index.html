@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时间</title>
+	<script src="../function.js"></script>
+</head>
+<style>
+	*{
+		margin:0;
+		padding:0;
+		font-style: normal;
+	}
+	div{
+		height:150px;
+		margin:200px auto;
+		text-align:center;
+		line-height:150px;
+		font-size:80px;
+		color:#000;
+	}
+</style>
+<body>
+	<!--<div>-->
+		<!--<i>距离圣诞节还有:</i><br>-->
+		<!--<span></span>天<span></span>时<span></span>分<span></span>秒-->
+	<!--</div>-->
+	<div>
+		<span></span>分<span></span>秒
+	</div>
+</body>
+</html>
+<script>
+/*	let date = new Date('12/22/2017 14:00:00');
+	date.getFullYear(); //年
+	date.getMonth(); //月 0-11   设置减一获取加一
+	date.getDate();  //号
+	date.getDay();   //周
+	date.getTime();  //1970年到当前时间的毫秒(字符串)
+	date.getTimezoneOffset();   //时差
+	console.dir(date);*/
+//	move();
+//	setInterval(move,1000);
+//	function  move(){
+//		let arr = [];
+//		let date = new Date(2017,11,25,12,30,0);
+//
+//		let now = new Date();
+//
+//		let time = Math.floor((date.getTime()- now.getTime())/1000);  //毫秒
+//
+//		let d = Math.floor(time/60/60/24);  //天数
+//		t = time%(60/60/24);   //天数取余
+//		arr.push(d);
+//
+//		dd = time/60/60%24;
+//		let h = Math.floor(dd); // 小时;
+//		arr.push(h);
+//
+//		hh = time/60%60;
+//		//time %= (60 * 60);
+//		let m = Math.floor(hh); //分钟
+//		arr.push(m);
+//
+//		mm = time%60;
+//		let s = Math.floor(mm);//秒
+//		arr.push(s);
+//
+//		let spans = document.querySelectorAll('div > span');
+//		spans.forEach((element,index) => {
+//			element.innerText = arr[index];
+//		})
+//	}
+</script>
+<script>
+	let date = new Date();
+	date.setMinutes(date.getMinutes()+10);
+	move();
+	setInterval(move,1000);
+	function  move(){
+		let arr = [];
+		let now = new Date();
+
+		let time = parseInt((date.getTime() - now.getTime()) / 1000); //毫秒
+
+		let m = parseInt(time / 60 % 60);
+		arr.push(m);
+
+		let s = parseInt(time % 60);
+		arr.push(s);
+
+		let spans1 = document.querySelectorAll('div > span');
+		spans1.forEach((ele,index) => {
+			ele.innerText = arr[index];
+		})
+	}
+
+</script>
+
