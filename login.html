@@ -16,23 +16,28 @@
             let canvas = document.querySelector('canvas');
             let ctx = canvas.getContext('2d');
             num = 0;
-            setInterval(function(){
+
+            let t = setInterval(function(){
                 num++;
                 let  angle =  Math.PI * 2 / 100;
                 let r = 200;
+                ctx.strokeStyle = 'gold';
                 ctx.clearRect(0,0,500,500);
                 ctx.beginPath();
                 ctx.arc(250,250,r,0,angle * num);
                 ctx.stroke();
-
                 ctx.closePath();
-                ctx.beginPath();
 
-                /*ctx.font = '24px/30px serif';
+                ctx.font = '30px serif';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
 
-                ctx.fillStyle = "#ccc";*/
+                ctx.fillStyle = "gold";
+                ctx.fillText( num + "%",250,250);
+
+                if(num == 100){
+                    clearInterval(t);
+                }
             },100);
         </script>
 </body>
